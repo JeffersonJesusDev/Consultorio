@@ -9,3 +9,4 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Long> {
 }
 
 
+
