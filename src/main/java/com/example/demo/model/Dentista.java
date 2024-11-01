@@ -29,6 +29,8 @@ public class Dentista {
 
     @Column(name = "CRO")
     private int CRO;
+    @Column(name = "especialidade_dentista")
+    private String especilidade;
 
 
     public Long getId_dentista() {
@@ -85,5 +87,13 @@ public class Dentista {
 
     public void setCRO(int CRO) {
         this.CRO = CRO;
+    }
+
+    public String getEspecilidade() {
+        return especilidade;
+    }
+
+    public void setEspecilidade(String especilidade) {
+        this.especilidade = especilidade;
     }
 }

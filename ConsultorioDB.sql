@@ -40,9 +40,30 @@ select nome_paciente, data_nasc_paciente from Paciente;
 alter table Paciente
 add column Convenio_Paciente varchar(50); /*atua na alteração da estrutura da tabela */
 
+alter table Paciente
+add column valor_convenio varchar(50); /*atua na alteração da estrutura da tabela */
+
+alter table Dentista
+add column especialidade varchar(50); /*atua na alteração da estrutura da tabela */
+
+ALTER TABLE Dentista CHANGE COLUMN especialidade especialidade_dentista varchar(80);
+
+
+update Dentista
+set especialidade_dentista = 'Endodontia'
+where pk_id_dentista = 2;
+
+
 update Paciente
 set Convenio_Paciente = 'Sirio Libanês'
-where nome_paciente = 'Jeff10 da Silva';
+where pk_id_paciente in (2, 4, 3);
+
+
+update Paciente
+set valor_convenio = 100;
+
+delete from Paciente
+where pk_id_paciente = 3;
 
 insert into Paciente(
 	nome_paciente,
@@ -72,6 +93,17 @@ insert into Consulta(
     descricao_consulta
 ) values ('NotreDame10', '2024-10-29 12:26:00', 'limpeza');
 
-CREATE USER 'MySQL80_3307'@'localhost' IDENTIFIED BY 'MySQL@2022';
-GRANT ALL PRIVILEGES ON Consultorio.* TO 'MySQL80_3307'@'localhost';
-FLUSH PRIVILEGES;
+/* Update e delete sem where está ERRADO */
+
+CREATE USER 'MySQL80_3307'@'localhost' IDENTIFIED BY 'MySQL@2022'; /* Criando um usuário no banco de dados */
+GRANT ALL PRIVILEGES ON Consultorio.* TO 'MySQL80_3307'@'localhost'; /* Garantindo acesso aos previlegios de acesso no banco */
+FLUSH PRIVILEGES; /* flush */
+
+
+start transaction; /* preparo para exclusão de registros */
+ 
+delete from tb_Paciente; /* Deletando TODOS OS REGISTROS da sua tabela */
+select * from tb_Paciente;
+ 
+Rollback; /* volta atrás (Brinks!! rs) */
+Commit; /* confirma a exclusão */
