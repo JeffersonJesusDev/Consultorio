@@ -35,6 +35,14 @@ describe table Paciente;
 select * from Paciente;
 select * from Dentista;
 select * from Consulta;
+select nome_paciente, data_nasc_paciente from Paciente;
+
+alter table Paciente
+add column Convenio_Paciente varchar(50); /*atua na alteração da estrutura da tabela */
+
+update Paciente
+set Convenio_Paciente = 'Sirio Libanês'
+where nome_paciente = 'Jeff10 da Silva';
 
 insert into Paciente(
 	nome_paciente,
@@ -44,7 +52,7 @@ insert into Paciente(
     email_paciente,
     telefone_paciente
 ) values 
-('Jeff10 da Silva', '2022-10-01', 'm', 'Rua nove 12', 'joao2@jjoa.com', '5511958452515'); 
+('Jeff da Silva', '2022-10-01', 'm', 'Rua nove 12', 'joao2@jjoa.com', '5511958452515'); 
 
 
 insert into Dentista(
@@ -55,14 +63,14 @@ insert into Dentista(
     telefone_dentista,
     CRO
 ) values 
-('Doutor Jeff', '2022-10-01', 'm', 'Rua nove 22', '5511958452515', '2254634'); 
+('Doutor Jeff10', '2022-10-01', 'm', 'Rua nove 22', '5511958452515', '2254634');
 
 
 insert into Consulta(
     local_consulta ,
     data_consulta,
     descricao_consulta
-) values ('NotreDame5', '2024-10-29 12:26:00', 'limpeza');
+) values ('NotreDame10', '2024-10-29 12:26:00', 'limpeza');
 
 CREATE USER 'MySQL80_3307'@'localhost' IDENTIFIED BY 'MySQL@2022';
 GRANT ALL PRIVILEGES ON Consultorio.* TO 'MySQL80_3307'@'localhost';

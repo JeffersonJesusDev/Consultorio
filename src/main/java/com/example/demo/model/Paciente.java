@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -29,6 +31,12 @@ public class Paciente {
 
     @Column(name = "telefone_paciente", length = 13)
     private String telefone;
+
+    @Column(name = "Convenio_Paciente")
+    private String convenio;
+
+    @Column(name = "valor_convenio")
+    private BigDecimal valorConvenio;
 
     public Long getId_paciente() {
         return id_paciente;
@@ -84,5 +92,21 @@ public class Paciente {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getConvenio() {
+        return convenio;
+    }
+
+    public void setConvenio(String convenio) {
+        this.convenio = convenio;
+    }
+
+    public BigDecimal getValorConvenio() {
+        return valorConvenio;
+    }
+
+    public void setValorConvenio(BigDecimal valorConvenio) {
+        this.valorConvenio = valorConvenio;
     }
 }
