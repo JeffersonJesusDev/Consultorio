@@ -64,3 +64,6 @@ insert into Consulta(
     descricao_consulta
 ) values ('NotreDame5', '2024-10-29 12:26:00', 'limpeza');
 
+CREATE USER 'MySQL80_3307'@'localhost' IDENTIFIED BY 'MySQL@2022';
+GRANT ALL PRIVILEGES ON Consultorio.* TO 'MySQL80_3307'@'localhost';
+FLUSH PRIVILEGES;
