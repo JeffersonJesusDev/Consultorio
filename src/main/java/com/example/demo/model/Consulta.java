@@ -6,7 +6,7 @@ import java.sql.Date;
 import java.sql.Time;
 
 @Entity
-@Table(name = "consulta_tb")
+@Table(name = "Consulta")
 public class Consulta {
 
     @Id

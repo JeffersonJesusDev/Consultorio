@@ -1,20 +1,34 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "Paciente_tb")
+@Table(name = "Paciente")
 public class Paciente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //
+    @Column(name = "pk_id_paciente")
     private Long id_paciente;
+
+    @Column(name = "nome_paciente", length = 100)
     private String nome;
-    private String cpf;
+
+    @Column(name = "data_nasc_paciente")
+    private LocalDate nascimento;
+
+    @Column(name = "genero_paciente")
     private String genero;
-    private String nascimento;
-    private String telefone;  // Alterado de int para String
-    private String endereco;  // Corrigido de "enderco" para "endereco"
+
+    @Column(name = "endereco_paciente", length = 100)
+    private String endereco;
+
+    @Column(name = "email_paciente", length = 50)
+    private String email;
+
+    @Column(name = "telefone_paciente", length = 13)
+    private String telefone;
 
     // Getters e Setters
     public Long getId_paciente() {
@@ -33,12 +47,12 @@ public class Paciente {
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
+    public LocalDate getNascimento() {
+        return nascimento;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setNascimento(LocalDate nascimento) {
+        this.nascimento = nascimento;
     }
 
     public String getGenero() {
@@ -49,12 +63,20 @@ public class Paciente {
         this.genero = genero;
     }
 
-    public String getNascimento() {
-        return nascimento;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setNascimento(String nascimento) {
-        this.nascimento = nascimento;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getTelefone() {
@@ -63,13 +85,5 @@ public class Paciente {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
     }
 }
