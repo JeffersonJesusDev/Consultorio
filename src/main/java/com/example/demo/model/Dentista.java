@@ -30,7 +30,7 @@ public class Dentista {
     @Column(name = "CRO")
     private int CRO;
 
-    // Getters e Setters
+
     public Long getId_dentista() {
         return id_dentista;
     }

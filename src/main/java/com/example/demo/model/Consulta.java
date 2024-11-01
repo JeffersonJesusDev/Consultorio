@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Consulta")
@@ -11,20 +12,12 @@ public class Consulta {
 
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
+    @Column(name ="pk_id_consulta")
     private Long consulta_id;
+    @Column(name = "local_consulta")
     private String sala;
-    private Time horario;
-    private Date data;
-
-    public Consulta(Long consulta_id, String sala, Time horario, Date data) {
-        this.consulta_id = consulta_id;
-        this.sala = sala;
-        this.horario = horario;
-        this.data = data;
-    }
-
-    public Consulta() {
-    }
+    @Column(name = "data_consulta")
+    private LocalDate data;
 
     public Long getConsulta_id() {
         return consulta_id;
@@ -42,19 +35,12 @@ public class Consulta {
         this.sala = sala;
     }
 
-    public Time getHorario() {
-        return horario;
-    }
 
-    public void setHorario(Time horario) {
-        this.horario = horario;
-    }
-
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 }

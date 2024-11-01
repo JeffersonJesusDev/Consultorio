@@ -30,7 +30,6 @@ public class Paciente {
     @Column(name = "telefone_paciente", length = 13)
     private String telefone;
 
-    // Getters e Setters
     public Long getId_paciente() {
         return id_paciente;
     }
